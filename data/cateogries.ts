@@ -1,7 +1,4 @@
-export const categories = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Accessibility",
-] as const;
+import { quizzes } from "./quizzes";
+
+export const categories = quizzes.map((quiz) => quiz.title);
 export type Category = (typeof categories)[number];

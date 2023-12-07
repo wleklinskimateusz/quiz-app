@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button";
 import { ModeToggle } from "@/components/ModeToggle";
+import { ResetScoreLink } from "@/components/ResetScoreLink";
 import { SelectionElement } from "@/components/SelectionElement";
 import { Icon } from "@/components/icons/Icon";
 import { categories } from "@/data/cateogries";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -20,14 +20,14 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-start gap-3 self-stretch">
         {categories.map((category) => (
-          <Link
-            href={`/${category}`}
+          <ResetScoreLink
+            href={`/${category}/1`}
             key={category}
             className="flex w-full items-center gap-4 rounded-xl bg-white p-3 shadow dark:bg-navy"
           >
             <Icon icon={category} />
             <span className="text-[18px font-medium]">{category}</span>
-          </Link>
+          </ResetScoreLink>
         ))}
       </div>
     </>

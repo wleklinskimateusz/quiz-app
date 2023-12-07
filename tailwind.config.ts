@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const colors = {
   purple: "#A729F5",
@@ -43,6 +44,14 @@ const config: Config = {
       colors,
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      // look for the selected class in the parents of the current node
+      addVariant("radio-check", [
+        'input[type="radio"]:checked + &',
+        'input[type="radio"]:checked+label>&',
+      ]);
+    }),
+  ],
 };
 export default config;
